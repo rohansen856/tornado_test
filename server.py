@@ -2,9 +2,16 @@ import tornado.ioloop
 import tornado.web
 import json
 
+# Helper: Input validation
+def validate_input(data, required_fields):
+    missing = [field for field in required_fields if field not in data]
+    if missing:
+        return False, f"Missing fields: {', '.join(missing)}"
+    return True, None
+
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write({"message": "Hello, Tornado!"})
+        self.render("index.html")
 
 class EchoHandler(tornado.web.RequestHandler):
     def post(self):
@@ -19,7 +26,7 @@ def make_app():
     return tornado.web.Application([
         (r"/", MainHandler),
         (r"/echo", EchoHandler),
-    ])
+    ], template_path="templates")
 
 if __name__ == "__main__":
     app = make_app()
