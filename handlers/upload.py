@@ -30,5 +30,6 @@ class FileUploadHandler(tornado.web.RequestHandler):
 
             self.redirect("/storage")
         except Exception as e:
+            conn.rollback()
             self.set_status(500)
             self.write({"error": str(e)})
