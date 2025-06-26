@@ -10,25 +10,35 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
         }
         h1, h2 {
-            color: #333;
+            color: #444;
+            text-align: center;
         }
         .container {
             margin-bottom: 30px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            background: #fff;
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 10px;
             text-align: left;
         }
         th {
             background-color: #f2f2f2;
+            font-weight: bold;
         }
         tr:hover {
             background-color: #f5f5f5;
@@ -42,13 +52,40 @@
         }
         button {
             cursor: pointer;
-            padding: 5px 10px;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #0056b3;
         }
         .upload-form {
             background-color: #f9f9f9;
             padding: 15px;
             border-radius: 5px;
             margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+        input[type="file"], input[type="number"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -110,9 +147,9 @@
         {% end %}
     </div>
     
-    <div>
+    <div class="back-link">
         <a href="/">Back to User Management</a>
     </div>
     
 </body>
-</html>
+</html></form>
