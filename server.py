@@ -23,6 +23,15 @@ def make_app():
 
 if __name__ == "__main__":
     cursor.execute("""
+    CREATE TABLE IF NOT EXISTS users (
+        id SERIAL PRIMARY KEY,
+        name TEXT NOT NULL UNIQUE,
+        email TEXT NOT NULL UNIQUE,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )
+    """)
+
+    cursor.execute("""
     CREATE TABLE IF NOT EXISTS user_files (
         id SERIAL PRIMARY KEY,
         user_id INTEGER REFERENCES users(id),

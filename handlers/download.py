@@ -7,7 +7,8 @@ class FileDownloadHandler(tornado.web.RequestHandler):
             response = s3_client.get_object(Bucket=BUCKET_NAME, Key=file_key)
 
             self.set_header('Content-Type', response['ContentType'])
-            self.set_header('Content-Disposition', f'attachment; filename="{file_key.split('-', 1)[1]}"')
+            name_splitter = file_key.split('-', 1)
+            self.set_header('Content-Disposition', f'attachment; filename="{name_splitter[1]}"')
             self.write(response['Body'].read())
         except Exception as e:
             self.set_status(500)
