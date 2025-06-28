@@ -1,3 +1,4 @@
+from handlers.htmltopdf import PdfConverterHandler
 import tornado.ioloop
 import tornado.web
 from handlers.main import MainHandler
@@ -19,6 +20,7 @@ def make_app():
         (r"/upload", FileUploadHandler),
         (r"/delete", FileDeleteHandler),
         (r"/download/(.*)", FileDownloadHandler),
+        (r"/convert-to-pdf", PdfConverterHandler),
     ], template_path="templates")
 
 if __name__ == "__main__":
